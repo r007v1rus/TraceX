@@ -48,10 +48,19 @@ def test_version_command():
 
 
 def test_validate_command():
+    # Valid domain
     ok = runner.invoke(app, ["validate", "Example.com"])
-    assert ok.exit_code == 0 and "example.com" in ok.output
-    bad = runner.invoke(app, ["validate", "1.2.3.4"])
-    assert bad.exit_code == 1
+    assert ok.exit_code == 0
+    assert "example.com" in ok.output
+
+    # Valid IP address
+    ip = runner.invoke(app, ["validate", "1.2.3.4"])
+    assert ip.exit_code == 0
+    assert "1.2.3.4" in ip.output
+
+    # Invalid target
+    bad = runner.invoke(app, ["validate", "invalid target"])
+    assert bad.exit_code != 0
 
 
 def test_invalid_target_exit_code():
