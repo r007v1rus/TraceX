@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tracex"
+dynamic = ["version"]
+description = "Digital footprint investigator: a modular terminal toolkit for authorized security reconnaissance"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "Ghost" }]
+keywords = ["security", "reconnaissance", "osint", "pentest", "cli", "footprint", "web-audit"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+]
+dependencies = [
+    "typer>=0.15,<1.0",
+    "rich>=13.9,<15.0",
+    "dnspython>=2.6,<3.0",
+    "httpx>=0.27,<1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://github.com/<your-username>/TraceX"
+Issues = "https://github.com/<your-username>/TraceX/issues"
+
+[project.scripts]
+tracex = "tracex.main:app"
+
+[tool.setuptools.dynamic]
+version = { attr = "tracex.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
