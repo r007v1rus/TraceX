@@ -15,10 +15,6 @@ DNS, WHOIS, subdomains, a deep web audit, and a graded report with a fix for eve
 
 </div>
 
-> **Authorized use only.** Run TraceX only against domains, hosts and accounts you
-> own or have explicit written permission to assess. TraceX is read-only: it
-> sends ordinary requests (DNS, RDAP, one HTTP GET per path, public profile URLs)
-> and never exploits anything, but you are responsible for how you use it.
 
 ## Why TraceX
 
